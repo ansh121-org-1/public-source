@@ -1,6 +1,6 @@
 name: "Test required workflow"
 on:
-  pull_request_target
+  pull_request
       
 jobs: 
   job-always-pass:
@@ -10,17 +10,17 @@ jobs:
       - name: Always pass
         run: exit 0
 
-   job-always-fail:
+  job-always-fail:
     name: Failing job
     runs-on: ubuntu-latest
     steps:
      - name: Always fail
-        run: exit 1
+       run: exit 1
     
-   job-to-be-skipped:
+  job-to-be-skipped:
      if: false
      name: Skipped job
      runs-on: ubuntu-latest
      steps:
        - name: Check out repository
-         run: echo "Hello world"		
+         run: echo "Hello world"
